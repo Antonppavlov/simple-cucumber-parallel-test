@@ -1,0 +1,33 @@
+buildscript {
+    repositories { jcenter() }
+
+    dependencies {
+        classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.3.1'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile group: 'io.cucumber', name: 'cucumber-java', version: '2.4.0'
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '2.4.0'
+    testCompile 'junit:junit:4.12'
+}
+
+apply plugin: 'ru.alfalab.cucumber-parallel-test'
+
+
+test {
+    maxParallelForks = 10
+    jvmArgs += "-Dcucumber.options=--tags @all"
+}
+
