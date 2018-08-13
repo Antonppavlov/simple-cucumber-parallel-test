@@ -1,13 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'ru.alfalab.cucumber-parallel-test'
+
+description = """Пример проекта паралельных тестов"""
+generateRunner.glue = ["ru.pavlovap.cucumber.steps", "steps"]
+
 buildscript {
     repositories { jcenter() }
 
     dependencies {
         classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.3.1'
     }
-}
-
-plugins {
-    id 'java'
 }
 
 repositories {
@@ -18,12 +21,13 @@ repositories {
 sourceCompatibility = 1.8
 
 dependencies {
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
     compile group: 'io.cucumber', name: 'cucumber-java', version: '2.4.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
     testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '2.4.0'
     testCompile 'junit:junit:4.12'
 }
 
-apply plugin: 'ru.alfalab.cucumber-parallel-test'
 
 
 test {
