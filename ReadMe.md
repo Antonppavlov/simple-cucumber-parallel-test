@@ -1,4 +1,5 @@
 # Пример распараллеливания тестов "Cucumer" с использованием "ru.alfalab.cucumber-parallel-test"
+https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin
 <br>
 
 ## Предварительные настройки
